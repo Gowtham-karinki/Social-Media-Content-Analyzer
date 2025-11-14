@@ -64,4 +64,9 @@ app.post("/api/upload", upload.single("file"), async (req, res) => {
 
 
 const PORT = process.env.PORT || 5000;
+// simple health-check route — add this before app.listen(...)
+app.get("/", (req, res) => {
+  res.send("SMCA Backend is running");
+});
+
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
